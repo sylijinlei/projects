@@ -1,0 +1,185 @@
+#ifndef _GPIO_H
+#define _GPIO_H
+
+#define S3C64XX_PA_GPIO        0x7F008000
+#define S3C64XX_GPIOREG(reg)	(S3C64XX_PA_GPIO + (reg))
+
+#define S3C64XX_GPA_BASE	S3C64XX_GPIOREG(0x0000)
+#define S3C64XX_GPB_BASE	S3C64XX_GPIOREG(0x0020)
+#define S3C64XX_GPC_BASE	S3C64XX_GPIOREG(0x0040)
+#define S3C64XX_GPD_BASE	S3C64XX_GPIOREG(0x0060)
+#define S3C64XX_GPE_BASE	S3C64XX_GPIOREG(0x0080)
+#define S3C64XX_GPF_BASE	S3C64XX_GPIOREG(0x00A0)
+#define S3C64XX_GPG_BASE	S3C64XX_GPIOREG(0x00C0)
+#define S3C64XX_GPH_BASE	S3C64XX_GPIOREG(0x00E0)
+#define S3C64XX_GPI_BASE	S3C64XX_GPIOREG(0x0100)
+#define S3C64XX_GPJ_BASE	S3C64XX_GPIOREG(0x0120)
+#define S3C64XX_GPK_BASE	S3C64XX_GPIOREG(0x0800)
+#define S3C64XX_GPL_BASE	S3C64XX_GPIOREG(0x0810)
+#define S3C64XX_GPM_BASE	S3C64XX_GPIOREG(0x0820)
+#define S3C64XX_GPN_BASE	S3C64XX_GPIOREG(0x0830)
+#define S3C64XX_GPO_BASE	S3C64XX_GPIOREG(0x0140)
+#define S3C64XX_GPP_BASE	S3C64XX_GPIOREG(0x0160)
+#define S3C64XX_GPQ_BASE	S3C64XX_GPIOREG(0x0180)
+
+#define S3C64XX_GPACON			(S3C64XX_GPA_BASE + 0x00)
+#define S3C64XX_GPADAT			(S3C64XX_GPA_BASE + 0x04)
+#define S3C64XX_GPAPUD			(S3C64XX_GPA_BASE + 0x08)
+#define S3C64XX_GPACONSLP		(S3C64XX_GPA_BASE + 0x0c)
+#define S3C64XX_GPAPUDSLP		(S3C64XX_GPA_BASE + 0x10)
+#define S3C64XX_GPA_CONMASK(__gpio)	(0xf << ((__gpio) * 4))
+#define S3C64XX_GPA_INPUT(__gpio)	(0x0 << ((__gpio) * 4))
+#define S3C64XX_GPA_OUTPUT(__gpio)	(0x1 << ((__gpio) * 4))
+
+#define S3C64XX_GPBCON			(S3C64XX_GPB_BASE + 0x00)
+#define S3C64XX_GPBDAT			(S3C64XX_GPB_BASE + 0x04)
+#define S3C64XX_GPBPUD			(S3C64XX_GPB_BASE + 0x08)
+#define S3C64XX_GPBCONSLP		(S3C64XX_GPB_BASE + 0x0c)
+#define S3C64XX_GPBPUDSLP		(S3C64XX_GPB_BASE + 0x10)
+#define S3C64XX_GPB_CONMASK(__gpio)	(0xf << ((__gpio) * 4))
+#define S3C64XX_GPB_INPUT(__gpio)	(0x0 << ((__gpio) * 4))
+#define S3C64XX_GPB_OUTPUT(__gpio)	(0x1 << ((__gpio) * 4))
+
+#define S3C64XX_GPCCON			(S3C64XX_GPC_BASE + 0x00)
+#define S3C64XX_GPCDAT			(S3C64XX_GPC_BASE + 0x04)
+#define S3C64XX_GPCPUD			(S3C64XX_GPC_BASE + 0x08)
+#define S3C64XX_GPCCONSLP		(S3C64XX_GPC_BASE + 0x0c)
+#define S3C64XX_GPCPUDSLP		(S3C64XX_GPC_BASE + 0x10)
+
+#define S3C64XX_GPC_CONMASK(__gpio)	(0xf << ((__gpio) * 4))
+#define S3C64XX_GPC_INPUT(__gpio)	(0x0 << ((__gpio) * 4))
+#define S3C64XX_GPC_OUTPUT(__gpio)	(0x1 << ((__gpio) * 4))
+
+#define S3C64XX_GPDCON			(S3C64XX_GPD_BASE + 0x00)
+#define S3C64XX_GPDDAT			(S3C64XX_GPD_BASE + 0x04)
+#define S3C64XX_GPDPUD			(S3C64XX_GPD_BASE + 0x08)
+#define S3C64XX_GPDCONSLP		(S3C64XX_GPD_BASE + 0x0c)
+#define S3C64XX_GPDPUDSLP		(S3C64XX_GPD_BASE + 0x10)
+
+#define S3C64XX_GPD_CONMASK(__gpio)	(0xf << ((__gpio) * 4))
+#define S3C64XX_GPD_INPUT(__gpio)	(0x0 << ((__gpio) * 4))
+#define S3C64XX_GPD_OUTPUT(__gpio)	(0x1 << ((__gpio) * 4))
+
+#define S3C64XX_GPECON			(S3C64XX_GPE_BASE + 0x00)
+#define S3C64XX_GPEDAT			(S3C64XX_GPE_BASE + 0x04)
+#define S3C64XX_GPEPUD			(S3C64XX_GPE_BASE + 0x08)
+#define S3C64XX_GPECONSLP		(S3C64XX_GPE_BASE + 0x0c)
+#define S3C64XX_GPEPUDSLP		(S3C64XX_GPE_BASE + 0x10)
+
+#define S3C64XX_GPE_CONMASK(__gpio)	(0xf << ((__gpio) * 4))
+#define S3C64XX_GPE_INPUT(__gpio)	(0x0 << ((__gpio) * 4))
+#define S3C64XX_GPE_OUTPUT(__gpio)	(0x1 << ((__gpio) * 4))
+
+#define S3C64XX_GPFCON			(S3C64XX_GPF_BASE + 0x00)
+#define S3C64XX_GPFDAT			(S3C64XX_GPF_BASE + 0x04)
+#define S3C64XX_GPFPUD			(S3C64XX_GPF_BASE + 0x08)
+#define S3C64XX_GPFCONSLP		(S3C64XX_GPF_BASE + 0x0c)
+#define S3C64XX_GPFPUDSLP		(S3C64XX_GPF_BASE + 0x10)
+
+#define S3C64XX_GPF_CONMASK(__gpio)	(0x3 << ((__gpio) * 2))
+#define S3C64XX_GPF_INPUT(__gpio)	(0x0 << ((__gpio) * 2))
+#define S3C64XX_GPF_OUTPUT(__gpio)	(0x1 << ((__gpio) * 2))
+
+#define S3C64XX_GPGCON			(S3C64XX_GPG_BASE + 0x00)
+#define S3C64XX_GPGDAT			(S3C64XX_GPG_BASE + 0x04)
+#define S3C64XX_GPGPUD			(S3C64XX_GPG_BASE + 0x08)
+#define S3C64XX_GPGCONSLP		(S3C64XX_GPG_BASE + 0x0c)
+#define S3C64XX_GPGPUDSLP		(S3C64XX_GPG_BASE + 0x10)
+
+#define S3C64XX_GPG_CONMASK(__gpio)	(0xf << ((__gpio) * 4))
+#define S3C64XX_GPG_INPUT(__gpio)	(0x0 << ((__gpio) * 4))
+#define S3C64XX_GPG_OUTPUT(__gpio)	(0x1 << ((__gpio) * 4))
+
+#define S3C64XX_GPHCON0			(S3C64XX_GPH_BASE + 0x00)
+#define S3C64XX_GPHCON1			(S3C64XX_GPH_BASE + 0x04)
+#define S3C64XX_GPHDAT			(S3C64XX_GPH_BASE + 0x08)
+#define S3C64XX_GPHPUD			(S3C64XX_GPH_BASE + 0x0c)
+#define S3C64XX_GPHCONSLP		(S3C64XX_GPH_BASE + 0x10)
+#define S3C64XX_GPHPUDSLP		(S3C64XX_GPH_BASE + 0x14)
+
+#define S3C64XX_GPH_CONMASK(__gpio)	(0xf << ((__gpio) * 4))
+#define S3C64XX_GPH_INPUT(__gpio)	(0x0 << ((__gpio) * 4))
+#define S3C64XX_GPH_OUTPUT(__gpio)	(0x1 << ((__gpio) * 4))
+
+#define S3C64XX_GPICON			(S3C64XX_GPI_BASE + 0x00)
+#define S3C64XX_GPIDAT			(S3C64XX_GPI_BASE + 0x04)
+#define S3C64XX_GPIPUD			(S3C64XX_GPI_BASE + 0x08)
+#define S3C64XX_GPICONSLP		(S3C64XX_GPI_BASE + 0x0c)
+#define S3C64XX_GPIPUDSLP		(S3C64XX_GPI_BASE + 0x10)
+
+#define S3C64XX_GPI_CONMASK(__gpio)	(0x3 << ((__gpio) * 2))
+#define S3C64XX_GPI_INPUT(__gpio)	(0x0 << ((__gpio) * 2))
+#define S3C64XX_GPI_OUTPUT(__gpio)	(0x1 << ((__gpio) * 2))
+
+#define S3C64XX_GPJCON			(S3C64XX_GPJ_BASE + 0x00)
+#define S3C64XX_GPJDAT			(S3C64XX_GPJ_BASE + 0x04)
+#define S3C64XX_GPJPUD			(S3C64XX_GPJ_BASE + 0x08)
+#define S3C64XX_GPJCONSLP		(S3C64XX_GPJ_BASE + 0x0c)
+#define S3C64XX_GPJPUDSLP		(S3C64XX_GPJ_BASE + 0x10)
+
+#define S3C64XX_GPJ_CONMASK(__gpio)	(0x3 << ((__gpio) * 2))
+#define S3C64XX_GPJ_INPUT(__gpio)	(0x0 << ((__gpio) * 2))
+#define S3C64XX_GPJ_OUTPUT(__gpio)	(0x1 << ((__gpio) * 2))
+
+#define S3C64XX_GPKCON			(S3C64XX_GPK_BASE + 0x00)
+#define S3C64XX_GPKCON1			(S3C64XX_GPK_BASE + 0x04)
+#define S3C64XX_GPKDAT			(S3C64XX_GPK_BASE + 0x08)
+#define S3C64XX_GPKPUD			(S3C64XX_GPK_BASE + 0x0c)
+
+#define S3C64XX_GPK_CONMASK(__gpio)	(0x3 << ((__gpio) * 2))
+#define S3C64XX_GPK_INPUT(__gpio)	(0x0 << ((__gpio) * 2))
+#define S3C64XX_GPK_OUTPUT(__gpio)	(0x1 << ((__gpio) * 2))
+
+#define S3C64XX_GPLCON          (S3C64XX_GPM_BASE + 0x00)
+#define S3C64XX_GPLDAT          (S3C64XX_GPM_BASE + 0x04)
+#define S3C64XX_GPLPUD          (S3C64XX_GPM_BASE + 0x08)
+
+#define S3C64XX_GPL_CONMASK(__gpio) (0x3 << ((__gpio) * 2))
+#define S3C64XX_GPL_INPUT(__gpio)   (0x0 << ((__gpio) * 2))
+#define S3C64XX_GPL_OUTPUT(__gpio)  (0x1 << ((__gpio) * 2))
+
+#define S3C64XX_GPMCON          (S3C64XX_GPM_BASE + 0x00)
+#define S3C64XX_GPMDAT          (S3C64XX_GPM_BASE + 0x04)
+#define S3C64XX_GPMPUD          (S3C64XX_GPM_BASE + 0x08)
+
+#define S3C64XX_GPM_CONMASK(__gpio) (0x3 << ((__gpio) * 2))
+#define S3C64XX_GPM_INPUT(__gpio)   (0x0 << ((__gpio) * 2))
+#define S3C64XX_GPM_OUTPUT(__gpio)  (0x1 << ((__gpio) * 2))
+
+#define S3C64XX_GPNCON			(S3C64XX_GPN_BASE + 0x00)
+#define S3C64XX_GPNDAT			(S3C64XX_GPN_BASE + 0x04)
+#define S3C64XX_GPNPUD			(S3C64XX_GPN_BASE + 0x08)
+
+#define S3C64XX_GPN_CONMASK(__gpio)	(0x3 << ((__gpio) * 2))
+#define S3C64XX_GPN_INPUT(__gpio)	(0x0 << ((__gpio) * 2))
+#define S3C64XX_GPN_OUTPUT(__gpio)	(0x1 << ((__gpio) * 2))
+
+#define S3C64XX_GPOCON			(S3C64XX_GPO_BASE + 0x00)
+#define S3C64XX_GPODAT			(S3C64XX_GPO_BASE + 0x04)
+#define S3C64XX_GPOPUD			(S3C64XX_GPO_BASE + 0x08)
+#define S3C64XX_GPOCONSLP		(S3C64XX_GPO_BASE + 0x0c)
+#define S3C64XX_GPOPUDSLP		(S3C64XX_GPO_BASE + 0x10)
+
+#define S3C64XX_GPO_CONMASK(__gpio)	(0x3 << ((__gpio) * 2))
+#define S3C64XX_GPO_INPUT(__gpio)	(0x0 << ((__gpio) * 2))
+#define S3C64XX_GPO_OUTPUT(__gpio)	(0x1 << ((__gpio) * 2))
+
+#define S3C64XX_GPPCON			(S3C64XX_GPP_BASE + 0x00)
+#define S3C64XX_GPPDAT			(S3C64XX_GPP_BASE + 0x04)
+#define S3C64XX_GPPPUD			(S3C64XX_GPP_BASE + 0x08)
+#define S3C64XX_GPPCONSLP		(S3C64XX_GPP_BASE + 0x0c)
+#define S3C64XX_GPPPUDSLP		(S3C64XX_GPP_BASE + 0x10)
+
+#define S3C64XX_GPP_CONMASK(__gpio)	(0x3 << ((__gpio) * 2))
+#define S3C64XX_GPP_INPUT(__gpio)	(0x0 << ((__gpio) * 2))
+#define S3C64XX_GPP_OUTPUT(__gpio)	(0x1 << ((__gpio) * 2))
+
+#define S3C64XX_GPQCON			(S3C64XX_GPQ_BASE + 0x00)
+#define S3C64XX_GPQDAT			(S3C64XX_GPQ_BASE + 0x04)
+#define S3C64XX_GPQPUD			(S3C64XX_GPQ_BASE + 0x08)
+#define S3C64XX_GPQCONSLP		(S3C64XX_GPQ_BASE + 0x0c)
+#define S3C64XX_GPQPUDSLP		(S3C64XX_GPQ_BASE + 0x10)
+
+#define S3C64XX_GPQ_CONMASK(__gpio)	(0x3 << ((__gpio) * 2))
+#define S3C64XX_GPQ_INPUT(__gpio)	(0x0 << ((__gpio) * 2))
+#define S3C64XX_GPQ_OUTPUT(__gpio)	(0x1 << ((__gpio) * 2))
