@@ -2,3 +2,9 @@
 *.a
 *.so
 *.class
+*.bin
+*.dis
+*.elf
+cscope*
+tags
+tags.fn
