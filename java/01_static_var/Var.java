@@ -4,13 +4,17 @@ public class Var
 	{
 		Child chd1 = new Child(12,"小明");
 		chd1.joinGame();
+		Child chd2 = new Child(13,"小华");
+		chd2.joinGame();
+		System.out.println("child1 name = "+chd1.name);
+		System.out.println("total child count:"+Child.count);
 	}
 }
 class Child
 {
 	int age;
 	String name;
-	static int count = 0;
+	 static int count = 0;
 	public Child(int age, String name)
 	{
 		this.age = age;
