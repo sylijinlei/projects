@@ -7,21 +7,21 @@ public class Var
 		System.out.println(clerk1.name+"的工资是:" + clerk1.getSalary());
 	}
 }
-class Clerk
-{
-	public String name;
-	private int age;
-	 private float salary;
-	public Clerk(String name, int age, float salary)
-	{
-		this.name = name;
-		this.age = age;
-		this.salary = salary;
-	}
-	public float getSalary()
-	{
-		return salary;
-	}
+//class Clerk
+//{
+	//public String name;
+	//private int age;
+	 //private float salary;
+	//public Clerk(String name, int age, float salary)
+	//{
+		//this.name = name;
+		//this.age = age;
+		//this.salary = salary;
+	//}
+	//public float getSalary()
+	//{
+		//return salary;
+	//}
 
 
-}
+//}
