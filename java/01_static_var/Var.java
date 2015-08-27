@@ -17,6 +17,7 @@ class Child
 	 static int count = 0;
 	public Child(int age, String name)
 	{
+		count ++;
 		this.age = age;
 		this.name = name;
 	}
