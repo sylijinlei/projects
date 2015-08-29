@@ -14,7 +14,7 @@ public class Test {
 //			FileReader fr=new FileReader("D:\\aa.txt");
 //			System.out.println("go on!");
 //			Socket s=new Socket("137.0.0.1",1212);
-			int a = 5/2;
+		//	int a = 5/2;
 			//出现异常的地方中止执行代码，然后直接进入catch
 			//如果有多个catch，则进入匹配异常的catch
 			System.out.println("go on!");
