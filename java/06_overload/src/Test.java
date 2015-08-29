@@ -7,6 +7,7 @@ public class Test {
 		// TODO Auto-generated method stub
 		float a = 3.3f;
 		float b = 5.2f;
+
 		System.out.println("较大的数是：" + Abc.getMax(a, b));
 	}
 

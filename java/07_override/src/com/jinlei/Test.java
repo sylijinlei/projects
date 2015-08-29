@@ -18,10 +18,15 @@ class Animal
 {
 	String name;
 	int age;
+	//final 不能被子类覆盖
 	public void cry()
 	{
 		
 		System.out.println("我是动物，我不知道怎么叫！");
+	}
+	final public void run()  //不可被继承
+	{
+		System.out.println("我会行走！");
 	}
 }
 class Dog  extends Animal
@@ -31,6 +36,8 @@ class Dog  extends Animal
 		System.out.println("汪汪，我是一只狗！");
 		
 	}
+//	public void run()
+//	{};
 	
 }
 class Cat  extends Animal
