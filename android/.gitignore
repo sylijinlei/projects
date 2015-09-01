@@ -10,7 +10,6 @@ libs
 proguard-project.txt
 project.properties
 res
-*.java
 *.prefs
 .metadata
 .project
