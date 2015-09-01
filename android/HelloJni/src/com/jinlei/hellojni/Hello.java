@@ -1,4 +1,4 @@
-package com.jinlei.hellojin;
+package com.jinlei.hellojni;
 
 
 

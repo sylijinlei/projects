@@ -1,4 +1,4 @@
-package com.jinlei.hellojin;
+package com.jinlei.hellojni;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -14,7 +14,12 @@ public class HelloActivity extends Activity {
         setContentView(R.layout.activity_hello);
         System.out.println("test ----------------->");
         Hello.hello();
-      Hello.sayhello();
+      try {
+		Hello.sayhello();
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
     }
 
 
