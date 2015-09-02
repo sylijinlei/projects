@@ -1,4 +1,4 @@
-package com.jinlei;
+//package com.jinlei;
 
 public class Anony {
 
@@ -10,12 +10,13 @@ public class Anony {
 	//	B b = new B();
 		//testFunc(b);
 		//testFunc(new B());
-		testFunc(new A(){
-			public void printInfo(){
-				System.out.println("Hello, world!");
+		//testFunc(new A(){
+			//public void printInfo(){
+				//System.out.println("Hello, world!");
 				
-			}
-		});
+			//}
+		//});
+		testFunc(new B());
 	}
 
 	public static void testFunc(A a) {
@@ -31,7 +32,7 @@ interface A {
 class B implements A {
 
 	public void printInfo() {
-		System.out.println("Hello, world!");
+		System.out.println("B :Hello, world!");
 	}
 
 }
