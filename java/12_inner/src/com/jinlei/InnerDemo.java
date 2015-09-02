@@ -8,18 +8,26 @@ public class InnerDemo {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 Outer out = new Outer();
-Outer.Inner in = new Outer.Inner();
+Outer.Inner in = out.new Inner();
+
 in.printInfo(); 
+out.outprint();
 	}
 
 }
 class Outer {
 	
 	private static int a = 10;
-	static class  Inner{
+	public void outprint()
+	{
+	
+			System.out.println("out print");
+	}
+	 class  Inner{
 		public void printInfo()
 		{
 			System.out.println("a = " + a);
+			outprint();
 		}
 	}
 }
