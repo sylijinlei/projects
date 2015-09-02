@@ -11,6 +11,10 @@ public class Test extends JFrame{
 		p1.printName();
 		//Test test1 = new Test();
 		System.out.println("middle static = "+MiddleStu.middle);
+		p1.cry();
+		Stu stu1 = new Stu();
+		p1 = (PupilStu)stu1;
+		//p1.cry();   //不可以，因为p1指向的是Stu类，Stu类中没有这个方法
 		
 	}
 	public Test()
@@ -33,6 +37,10 @@ class Stu {
 class PupilStu extends Stu {
 	public void pay(float fee) {
 		this.fee = fee;
+	}
+	public void cry()
+	{
+		System.out.println("i am a pupil, 呜呜");
 	}
 }
 
