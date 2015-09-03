@@ -4,13 +4,30 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.*;
 
 public class HelloActivity extends Activity {
 
+	Button btnEqual;
+	TextView tvAdd;
+	EditText edtFactor1;
+	EditText edtFactor2;
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_hello);
+		
+		btnEqual = (Button)findViewById(R.id.btnEqual);
+		tvAdd = (TextView)findViewById(R.id.tvAdd);
+		edtFactor1 = (EditText)findViewById(R.id.edtFactor1);
+		edtFactor2 = (EditText)findViewById(R.id.edtFactor2);
+		tvAdd.setText("jackylee");
+		
+		
+		
+		
 		System.out.println("test ----------------->");
 		Hello.hello();
 		try {
