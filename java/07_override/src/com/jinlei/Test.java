@@ -10,7 +10,7 @@ public class Test {
 		Dog dog1 = new Dog();
 		dog1.cry();
 		Cat cat1 = new Cat();
-		cat1.cry();
+		cat1.cry2();
 	}
 
 }
@@ -36,16 +36,18 @@ class Dog  extends Animal
 		System.out.println("汪汪，我是一只狗！");
 		
 	}
-//	public void run()
-//	{};
 	
 }
 class Cat  extends Animal
 {
 	public void cry()
 	{
-		System.out.println("喵喵，我是一只猫！");
-		
+		System.out.println("喵喵，我是一只猫！");	
+	}
+	public void cry2()
+	{
+		this.cry();
+		super.cry();
 	}
 	
 }

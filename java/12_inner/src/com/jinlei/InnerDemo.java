@@ -12,6 +12,7 @@ Outer.Inner in = out.new Inner();
 
 in.printInfo(); 
 out.outprint();
+//Outer.Inner in2 = new Outer.Inner();
 	}
 
 }

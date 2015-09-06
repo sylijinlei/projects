@@ -4,6 +4,9 @@
 #include<linux/cdev.h> 
 #include<linux/device.h>
 #include<linux/slab.h>
+#include <linux/gpio.h>
+#include <mach/gpio.h>
+#include <plat/gpio-cfg.h>
 
 #define     MYCHAR_DEV_NAME   "mychar_dev"               //在/dev目录下创建的设备节点名
 static  int   mychar_major  = 0;                      //0表示动态申请设备号，可以设置成未被申请的设备号
@@ -64,6 +67,7 @@ static int __init mychar_init(void)
 {  
 	int ret;
 	
+	int i;
 	mychar_dev   = (struct mychar_dev *)kmalloc(sizeof(struct mychar_dev),GFP_KERNEL);   //为设备结构体动态申请内存
 	if(mychar_dev == NULL)
 		 goto fail_kmalloc;                                               //申请内存失败
@@ -74,7 +78,7 @@ static int __init mychar_init(void)
 		 ret = register_chrdev_region(mychar_dev->dev_num, 1, "mychar_devno");	       //静态申请设备号，1是申请的设备号数
 	 }
 	 else 
-	 {
+	{
 		 ret = alloc_chrdev_region(&mychar_dev->dev_num, 0, 1, "mychar_dev");     //动态申请设备号， 0表示次设备号
 	 }
 	 if (ret < 0)
@@ -88,8 +92,19 @@ static int __init mychar_init(void)
 	 
 	 mychar_dev->class = class_create(THIS_MODULE, "mychar");
 	 mychar_dev->device = device_create(mychar_dev->class, NULL, mychar_dev->dev_num, NULL, "MYCHAR_DEV_NAME");     //创建class类和设备，自动创建设备节点
+     
 	
-	 return ret;
+	for (i = 0; i < 4; i++)
+    {
+		s3c_gpio_cfgpin(led_gpios[i], S3C_GPIO_OUTPUT);
+    }
+	
+    pio_set_value(led_gpios[0], 1);
+	gpio_set_value(led_gpios[1], 0);
+	gpio_set_value(led_gpios[2], 0);
+	gpio_set_value(led_gpios[3], 1);
+    return ret;
+     
 	 fail_add:
 		 printk("driver: fail add cdev\n");
 		 unregister_chrdev_region(mychar_dev->dev_num, 1);  

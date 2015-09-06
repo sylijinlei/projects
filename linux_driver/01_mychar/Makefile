@@ -1,4 +1,4 @@
-KERN_DIR = /work/linux-2.6.36.2-v1.05
+KERN_DIR = /work/sources/linux-3.0.86/ 
 obj-m	+= mychar.o
 all:
 	make -C $(KERN_DIR) M=`pwd` modules 

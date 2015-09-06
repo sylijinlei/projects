@@ -13,5 +13,7 @@ public class array
 			//System.out.println("arr["+ i+ "] = "+arr[i]);
 		}
 		System.out.println(arr);
+		CharSequence cs = "jackylee";
+		System.out.println(cs);
 	}
 }
