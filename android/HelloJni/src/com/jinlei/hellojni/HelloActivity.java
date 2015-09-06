@@ -1,9 +1,12 @@
 package com.jinlei.hellojni;
 
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.*;
 
 public class HelloActivity extends Activity {
@@ -12,7 +15,10 @@ public class HelloActivity extends Activity {
 	TextView tvAdd;
 	EditText edtFactor1;
 	EditText edtFactor2;
-	
+	String strFactor1;
+	String strFactor2;
+	int intResult;
+	String strResult;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +29,22 @@ public class HelloActivity extends Activity {
 		tvAdd = (TextView)findViewById(R.id.tvAdd);
 		edtFactor1 = (EditText)findViewById(R.id.edtFactor1);
 		edtFactor2 = (EditText)findViewById(R.id.edtFactor2);
-		tvAdd.setText("jackylee");
-		
+		edtFactor1.setText("0");
+		edtFactor2.setText("0");
+
+		btnEqual.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				strFactor1 = edtFactor1.getText().toString();
+				strFactor2 = edtFactor2.getText().toString();
+				intResult = Integer.parseInt(strFactor1) + Integer.parseInt(strFactor2);
+				strResult = Integer.toString(intResult);
+				btnEqual.setText(strResult);
+				
+			}
+		});
 		
 		
 		
@@ -37,6 +57,7 @@ public class HelloActivity extends Activity {
 			e.printStackTrace();
 		}
 	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
