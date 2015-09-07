@@ -1,0 +1,20 @@
+package com.jinlei.hardcontrol;
+
+public class Led {
+	
+	static
+	{
+		System.loadLibrary("led");
+	}
+	public native static void ledControl(int led,int cmd);
+	public native static int ledOpen();
+
+	public native static void ledClose();
+	
+	public static void ledCtrl(int led, int cmd)
+	{
+		ledControl( led,  cmd);
+	}
+
+
+}

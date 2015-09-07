@@ -1,0 +1,15 @@
+package com.jinlei.hardcontrol;
+
+public class Led {
+	
+	static
+	{
+		System.loadLibrary("led");
+	}
+	public native static void c_ledControl(int led,int cmd);
+	public void ledCotrol(int led, int cmd)
+	{
+		c_ledControl( led,  cmd);
+	}
+
+}
