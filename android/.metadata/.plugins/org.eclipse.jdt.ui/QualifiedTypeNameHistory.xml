@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.jinlei.hellojni.R.id"/>
-<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
-<fullyQualifiedTypeName name="com.jinlei.hellojni.R.string"/>
-<fullyQualifiedTypeName name="java.lang.CharSequence"/>
-<fullyQualifiedTypeName name="android.R.integer"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
-</qualifiedTypeNameHistroy>
