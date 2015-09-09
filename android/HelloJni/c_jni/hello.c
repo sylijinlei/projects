@@ -24,12 +24,6 @@ jstring c_printString(JNIEnv *env, jobject cls,jstring str)
     return (*env)->NewStringUTF(env, cstr2);
 
 }
-jintArray c_printArray(JNIEnv *env, jobject cls,jintArray arr1, jintArray arr2)
-{
-   jintArray *carr1;
-   jintArray *carr2;
-   jintArray rarry;
-}
 static const JNINativeMethod methods[] = {
     {"sayhello", "(II)I", (void *)c_sayhello},
     {"printString", "(Ljava/lang/String;)Ljava/lang/String;", (void *)c_printString},
