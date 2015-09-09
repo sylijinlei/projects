@@ -44,12 +44,17 @@ public class HardcontrolActivity extends Activity
 		chkLed[2] = (CheckBox) findViewById(R.id.chkLed2);
 		chkLed[3] = (CheckBox) findViewById(R.id.chkLed3);
 
+		Led.ledOpen();
 		// …Ë÷√btnControlº‡Ã˝∆˜
 		btnControl.setOnClickListener(new OnClickListener()
 		{
 			public void onClick(View v)
 			{
 				// TODO Auto-generated method stub
+				Led.ledControl(0, 0);
+				Led.ledControl(1, 0);
+				Led.ledControl(2, 0);
+				Led.ledControl(3, 0);
 			}
 		});
 		// …Ë÷√rdoGupLedº‡Ã˝
@@ -93,36 +98,44 @@ public class HardcontrolActivity extends Activity
 			case R.id.chkLed0:
 				if (isChecked)
 				{
+					Led.ledControl(0, 1);
 					Toast.makeText(HardcontrolActivity.this, "Led0 chedked", Toast.LENGTH_SHORT).show();
 				} else
 				{
+					Led.ledControl(0, 0);
 					Toast.makeText(HardcontrolActivity.this, "Led0 unchedked", Toast.LENGTH_SHORT).show();
 				}
 				break;
 			case R.id.chkLed1:
 				if (isChecked)
 				{
+					Led.ledControl(1, 1);
 					Toast.makeText(HardcontrolActivity.this, "chkLed1 chedked", Toast.LENGTH_SHORT).show();
 				} else
 				{
+					Led.ledControl(1, 0);
 					Toast.makeText(HardcontrolActivity.this, "chkLed1 unchedked", Toast.LENGTH_SHORT).show();
 				}
 				break;
 			case R.id.chkLed2:
 				if (isChecked)
 				{
+					Led.ledControl(2, 1);
 					Toast.makeText(HardcontrolActivity.this, "chkLed2 chedked", Toast.LENGTH_SHORT).show();
 				} else
 				{
+					Led.ledControl(2, 0);
 					Toast.makeText(HardcontrolActivity.this, "chkLed2 unchedked", Toast.LENGTH_SHORT).show();
 				}
 				break;
 			case R.id.chkLed3:
 				if (isChecked)
 				{
+					Led.ledControl(3, 1);
 					Toast.makeText(HardcontrolActivity.this, "chkLed3 chedked", Toast.LENGTH_SHORT).show();
 				} else
 				{
+					Led.ledControl(3, 0);
 					Toast.makeText(HardcontrolActivity.this, "chkLed3 unchedked", Toast.LENGTH_SHORT).show();
 				}
 				break;

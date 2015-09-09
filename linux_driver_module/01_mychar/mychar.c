@@ -91,7 +91,7 @@ static int __init mychar_init(void)
 		 goto fail_add;
 	 
 	 mychar_dev->class = class_create(THIS_MODULE, "mychar");
-	 mychar_dev->device = device_create(mychar_dev->class, NULL, mychar_dev->dev_num, NULL, "MYCHAR_DEV_NAME");     //创建class类和设备，自动创建设备节点
+	 mychar_dev->device = device_create(mychar_dev->class, NULL, mychar_dev->dev_num, NULL, MYCHAR_DEV_NAME);     //创建class类和设备，自动创建设备节点
      
 	
 	for (i = 0; i < 4; i++)

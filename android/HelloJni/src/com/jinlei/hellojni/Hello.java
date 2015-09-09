@@ -10,7 +10,6 @@ public class Hello {
 
 	public native static int sayhello(int a, int b);
 	public native static String printString(String str);
-	public native static int[] printArray(int[]a, int[]b);
 	
 	
 }
