@@ -1,6 +1,5 @@
 package com.jinlei.hellojni;
 
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,7 +8,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.*;
 
-public class HelloActivity extends Activity {
+public class HelloActivity extends Activity
+{
 
 	Button btnEqual;
 	TextView tvAdd;
@@ -19,60 +19,66 @@ public class HelloActivity extends Activity {
 	String strFactor2;
 	int intResult;
 	String strResult;
-	
+
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState)
+	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_hello);
-		
-		btnEqual = (Button)findViewById(R.id.btnEqual);
-		tvAdd = (TextView)findViewById(R.id.tvAdd);
-		edtFactor1 = (EditText)findViewById(R.id.edtFactor1);
-		edtFactor2 = (EditText)findViewById(R.id.edtFactor2);
+
+		btnEqual = (Button) findViewById(R.id.btnEqual);
+		tvAdd = (TextView) findViewById(R.id.tvAdd);
+		edtFactor1 = (EditText) findViewById(R.id.edtFactor1);
+		edtFactor2 = (EditText) findViewById(R.id.edtFactor2);
 		edtFactor1.setText("0");
 		edtFactor2.setText("0");
 
-		btnEqual.setOnClickListener(new OnClickListener() {
-			
+		btnEqual.setOnClickListener(new OnClickListener()
+		{
+
 			@Override
-			public void onClick(View v) {
+			public void onClick(View v)
+			{
 				// TODO Auto-generated method stub
 				strFactor1 = edtFactor1.getText().toString();
 				strFactor2 = edtFactor2.getText().toString();
 				intResult = Integer.parseInt(strFactor1) + Integer.parseInt(strFactor2);
 				strResult = Integer.toString(intResult);
 				btnEqual.setText(strResult);
-				
+				Hello.sayhello(12, 56);
+
 			}
 		});
-		
-		
-		
+
 		System.out.println("test ----------------->");
 		Hello.hello();
-		try {
-			Hello.sayhello();
-		} catch (Exception e) {
+		try
+		{
+			Hello.sayhello(11, 56);
+		} catch (Exception e)
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.hello, menu);
 		return true;
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+		if (id == R.id.action_settings)
+		{
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

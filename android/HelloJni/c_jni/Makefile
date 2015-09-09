@@ -4,10 +4,10 @@ OBJ=$(patsubst %.c,lib%.so,$(SRC))
 
 ifeq ($(BOARD),4412)
 CC=arm-linux-gcc
-$(OBJ):
+$(OBJ): $(SRC)
 	@echo src == $(SRC)
 	@echo obj == $(OBJ)
-	$(CC)  -shared -fpic  -o libled.so $(SRC)   -llog   
+	$(CC)  -shared -fpic  -o $@ $<   -llog   
 	cp libled.so ../libs/armeabi/
 else
 

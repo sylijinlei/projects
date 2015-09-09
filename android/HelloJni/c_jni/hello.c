@@ -4,13 +4,13 @@
 #include <stdlib.h>
 #include <android/log.h>
 
-void c_sayhello()
+jint c_sayhello(JNIEnv *env, jobject cls,jint a, jint b)
 {
     printf("I am in the c lib !\n");
-__android_log_print(ANDROID_LOG_DEBUG, "HelloJni", "=====native say hello!\n");
+__android_log_print(ANDROID_LOG_DEBUG, "HelloJni", "=====native say hello!: a = %d, b = %d\n", a, b);
 }
 static const JNINativeMethod methods[] = {
-	{"sayhello", "()V", (void *)c_sayhello},
+	{"sayhello", "(II)I", (void *)c_sayhello},
 };
 
 JNIEXPORT jint JNICALL
@@ -28,7 +28,7 @@ JNI_OnLoad(JavaVM *jvm, void *reserved)
 	}
 
 	/* 2. map java hello <-->c c_hello */
-	if ((*env)->RegisterNatives(env, cls, methods, 1) < 0)
+	if ((*env)->RegisterNatives(env, cls, methods, sizeof(methods) / sizeof(JNINativeMethod)) < 0)
 		return JNI_ERR;
 
 	return JNI_VERSION_1_4;

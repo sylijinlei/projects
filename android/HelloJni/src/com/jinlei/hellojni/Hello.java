@@ -12,6 +12,6 @@ public class Hello {
 		
 		System.out.println("java hello!");
 	}
-	public native static void sayhello();
+	public native static int sayhello(int a, int b);
 	
 }
