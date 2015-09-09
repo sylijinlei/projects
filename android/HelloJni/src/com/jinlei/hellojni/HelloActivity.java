@@ -19,7 +19,7 @@ public class HelloActivity extends Activity
 	String strFactor2;
 	int intResult;
 	String strResult;
-
+	String str = "java string";;
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -32,6 +32,7 @@ public class HelloActivity extends Activity
 		edtFactor2 = (EditText) findViewById(R.id.edtFactor2);
 		edtFactor1.setText("0");
 		edtFactor2.setText("0");
+		
 
 		btnEqual.setOnClickListener(new OnClickListener()
 		{
@@ -46,12 +47,14 @@ public class HelloActivity extends Activity
 				strResult = Integer.toString(intResult);
 				btnEqual.setText(strResult);
 				Hello.sayhello(12, 56);
+				str = Hello.printString(str);
+				System.out.println(str);
 
 			}
 		});
 
 		System.out.println("test ----------------->");
-		Hello.hello();
+
 		try
 		{
 			Hello.sayhello(11, 56);
