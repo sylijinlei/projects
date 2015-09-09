@@ -5,8 +5,6 @@
 #include<linux/device.h>
 #include<linux/slab.h>
 #include <linux/gpio.h>
-#include <mach/gpio.h>
-#include <plat/gpio-cfg.h>
 
 #define     MYCHAR_DEV_NAME   "mychar_dev"               //在/dev目录下创建的设备节点名
 static  int   mychar_major  = 0;                      //0表示动态申请设备号，可以设置成未被申请的设备号
@@ -94,15 +92,6 @@ static int __init mychar_init(void)
 	 mychar_dev->device = device_create(mychar_dev->class, NULL, mychar_dev->dev_num, NULL, MYCHAR_DEV_NAME);     //创建class类和设备，自动创建设备节点
      
 	
-	for (i = 0; i < 4; i++)
-    {
-		s3c_gpio_cfgpin(led_gpios[i], S3C_GPIO_OUTPUT);
-    }
-	
-    pio_set_value(led_gpios[0], 1);
-	gpio_set_value(led_gpios[1], 0);
-	gpio_set_value(led_gpios[2], 0);
-	gpio_set_value(led_gpios[3], 1);
     return ret;
      
 	 fail_add:
