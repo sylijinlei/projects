@@ -5,4 +5,5 @@ define myfunc
 endef
 all:
 	$(call myfunc, arg1)
+	echo $(call my-dir)
 

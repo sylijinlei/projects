@@ -2,6 +2,7 @@ package com.jinlei.hellojni;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,7 +20,8 @@ public class HelloActivity extends Activity
 	String strFactor2;
 	int intResult;
 	String strResult;
-	String str = "java string";;
+	String str1 = "java string";
+	String str;
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -47,8 +49,8 @@ public class HelloActivity extends Activity
 				strResult = Integer.toString(intResult);
 				btnEqual.setText(strResult);
 				Hello.sayhello(12, 56);
-				str = Hello.printString(str);
-				System.out.println(str);
+				str = Hello.printString(str1);
+				Log.e("HelloJni", str);
 
 			}
 		});

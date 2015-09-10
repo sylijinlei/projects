@@ -1,4 +1,4 @@
-BOARD = 4412
+#BOARD = 4412
 SRC=$(shell ls *.c)
 OBJ=$(patsubst %.c,lib%.so,$(SRC))
 
@@ -8,6 +8,7 @@ $(OBJ): $(SRC)
 	@echo src == $(SRC)
 	@echo obj == $(OBJ)
 	$(CC)  -shared -fpic  -o $@ $<   -llog   
+	#arm-linux-ar -rc -o $@ $< -llog
 	cp $@ ../libs/armeabi/
 else
 

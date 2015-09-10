@@ -6,3 +6,5 @@ function add()
 }
 var=$(add 4 6)
 echo $?
+ cd `dirname $0`
+ echo `pwd`
