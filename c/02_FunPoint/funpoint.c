@@ -1,5 +1,5 @@
 #include <stdio.h>
- typedef int (fun_p)(int , int );
+typedef int (fun_p)(int , int );
 int add(int a, int b)
 {
     return a + b;
