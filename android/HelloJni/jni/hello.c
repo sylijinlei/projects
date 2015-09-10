@@ -4,10 +4,13 @@
 #include <stdlib.h>
 #include <android/log.h>
 
+#define Loge(...) __android_log_print(ANDROID_LOG_ERROR, "Hello", __VA_ARGS__)
+
 jint c_sayhello(JNIEnv *env, jobject cls,jint a, jint b)
 {
     printf("I am in the c lib !\n");
-    __android_log_print(ANDROID_LOG_ERROR, "HelloJni", "=====native say hello!: a = %d, b = %d\n", a, b);
+    /*__android_log_print(ANDROID_LOG_ERROR, "HelloJni", "=====native say hello!: a = %d, b = %d\n", a, b);*/
+    Loge("=====native say hello!: a = %d, b = %d\n", a, b);
     return 0;
 }
 jstring c_printString(JNIEnv *env, jobject cls,jstring str)
