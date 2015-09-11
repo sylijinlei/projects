@@ -8,7 +8,7 @@ CFLAGS 		:= -Wall -Os -fno-builtin-printf
 CPPFLAGS   	:= -nostdinc -nostdlib -fno-builtin 
 export 	CC AR LD OBJCOPY OBJDUMP INCLUDEDIR CFLAGS CPPFLAGS 
 
-main.bin: start.o main.o uart.o clock.o sdram.o math.o driver/libdriver.a  lib/libc.a
+main.bin: start.o main.o clock.o driver/libdriver.a  lib/libc.a
 	arm-linux-ld -Tmain.lds -o main.elf $^
 	arm-linux-objcopy -O binary main.elf main.bin
 	arm-linux-objdump -D main.elf > main.dis
