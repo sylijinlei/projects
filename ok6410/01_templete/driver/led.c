@@ -9,3 +9,4 @@ void LED_Init(void)
 	Set_4Bit(GPMCON, 3, 1);
 
 }
+

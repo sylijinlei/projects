@@ -64,6 +64,6 @@ typedef signed long s32;
 #define Get_2Bit(addr, bit)            ((( vul addr)&(0x3<<(bit * 2) )) >> (bit * 2))
 #define Get_4Bit(addr, bit)            ((( vul addr)&(0xf<<(bit))) >> (bit * 4))
 
-
+#define NVTBIT(start,end) ((0xFFFFFFFFUL >> (31 - start)) & (0xFFFFFFFFUL >>end  << end))
 
 #endif
