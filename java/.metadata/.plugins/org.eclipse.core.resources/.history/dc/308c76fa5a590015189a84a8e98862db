@@ -1,0 +1,115 @@
+package com.jinlei;
+
+import com.jinlei.Mtd.Sd;
+
+public class Test {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Phone phone = new Phone();
+		Camera  cam1 = new Camera();
+	//	cam1.start();
+		Computer computer = new Computer();
+		//computer.usbUsb(phone);
+		Usb usb = null;
+		usb = new Camera();
+		usb.start(1002);
+		Sd sd = new Sd(){    //Sd是接口
+			
+			public void sd_start(Computer cmp, int speed)
+			{
+				System.out.println("sd卡的工作速度是"+speed);
+				System.out.println("speed = "+cmp.sp);
+			}
+		};	
+		//computer.usbSd(sd);
+		
+	
+		Usb usb2 = new Usb() {
+
+			public void stop() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			public void start(int speed) {
+				// TODO Auto-generated method stub
+				System.out.println("USB的工作速度是"+speed);
+				
+			}
+		};
+	//	usb2.start(3000);
+		//computer.usbUsb(usb2);
+		
+	}
+
+}
+//接口里面的方法不能实现，接口是更加抽象的抽象类，一个类可以实现多个接口,接口中的变量必须被初始化
+interface Usb
+{
+	int a = 1;   //静态的，而且是final
+	public void start(int speed);
+	public void stop();
+}
+interface Keyboard
+{
+	public void write();
+}
+class Camera implements Usb,Keyboard
+{
+	public void start(int speed)
+	{
+		
+		System.out.println("我是相机，我要开始工作了!");
+		System.out.println("USB的工作速度是"+speed);
+	}
+	public void stop()
+	{
+		
+		System.out.println("我是相机，我要停止工作了!");
+	}
+	public void write()
+	{
+		
+	}
+}
+class Phone implements Usb
+{
+	public void start(int speed)
+	{
+		
+		System.out.println("我是手机，我要开始工作了!");
+		System.out.println("USB的工作速度是"+speed);
+	}
+	public void stop()
+	{
+		
+		System.out.println("我是手机，我要停止工作了!");
+	}
+}
+class Computer
+{
+	int sp = 1000;
+	public void usbUsb(Usb usb)
+	{
+		usb.start(sp);
+		usb.stop();
+	
+		System.out.println("a = " + Usb.a);
+	
+	}
+	public void usbSd(Mtd.Sd sd)
+	{
+		sd.sd_start(this,sp);
+		
+	}
+}
+class Mtd
+{
+	public  interface Sd{
+		public void sd_start(Computer cmp,int speed);
+	}
+}

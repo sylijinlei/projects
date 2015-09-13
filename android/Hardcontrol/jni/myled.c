@@ -6,11 +6,12 @@
 #include <sys/ioctl.h>
 
 static jint fd;
-
+#define Loge(...) __android_log_print(ANDROID_LOG_ERROR, "LEDDemo", __VA_ARGS__);
 jint ledOpen(JNIEnv *env, jobject cls)
 {
     fd = open("/dev/myled_dev", O_RDWR);
-    __android_log_print(ANDROID_LOG_DEBUG, "LEDDemo", "native ledOpen : %d", fd);
+    /*__android_log_print(ANDROID_LOG_DEBUG, "LEDDemo", "native ledOpen : %d", fd);*/
+    Loge("native ledOpen : %d", fd);
     if (fd >= 0)
         return 0;
     else
@@ -19,14 +20,16 @@ jint ledOpen(JNIEnv *env, jobject cls)
 
 void ledClose(JNIEnv *env, jobject cls)
 {
-    __android_log_print(ANDROID_LOG_DEBUG, "LEDDemo", "native ledClose ...");
+    /*__android_log_print(ANDROID_LOG_DEBUG, "LEDDemo", "native ledClose ...");*/
+    Loge("native ledClose ... ");
     close(fd);
 }
 
 jint ledControl(JNIEnv *env, jobject cls, jint which, jint status)
 {
     int ret = ioctl(fd, status, which);
-    __android_log_print(ANDROID_LOG_DEBUG, "LEDDemo", "native ledCtrl : %d, %d, %d", which, status, ret);
+    /*__android_log_print(ANDROID_LOG_DEBUG, "LEDDemo", "native ledCtrl : %d, %d, %d", which, status, ret);*/
+    Loge("native ledCtrl : %d, %d ,%d",which ,status, ret);
     return ret;
 }
 
@@ -45,7 +48,7 @@ JNI_OnLoad(JavaVM *jvm, void *reserved)
     if ((*jvm)->GetEnv(jvm, (void **)&env, JNI_VERSION_1_4)) {
         return JNI_ERR; /* JNI version not supported */
     }
-    cls = (*env)->FindClass(env, "com/jinlei/hardcontrol/Led");
+    cls = (*env)->FindClass(env, "com/jinlei/hardcontrol/LedService");
     if (cls == NULL) {
         return JNI_ERR;
     }
