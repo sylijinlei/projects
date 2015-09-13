@@ -6,16 +6,16 @@ import android.util.Log;
 	public LedService()
 	{
 		System.loadLibrary("myled");
-		ledOpen();
+		native_ledOpen();
 	}
 	public int ledCtrl(int which, int status)
 	{
 		Log.e("LedService","interface ledCtrl" + which+ "  "+status);
-		return ledControl(which, status);
+		return native_ledControl(which, status);
 	}
-	public native static int ledControl(int which,int status);
-	public native static int ledOpen();
-	public native static void ledClose();
+	public native static int native_ledControl(int which,int status);
+	public native static int native_ledOpen();
+	public native static void native_ledClose();
 }
 interface ILedService
 {

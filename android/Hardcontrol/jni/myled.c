@@ -34,9 +34,9 @@ jint ledControl(JNIEnv *env, jobject cls, jint which, jint status)
 }
 
 static const JNINativeMethod methods[] = {
-    {"ledOpen", "()I", (void *)ledOpen},
-    {"ledClose", "()V", (void *)ledClose},
-    {"ledControl", "(II)I", (void *)ledControl},
+    {"native_ledOpen", "()I", (void *)ledOpen},
+    {"native_ledClose", "()V", (void *)ledClose},
+    {"native_ledControl", "(II)I", (void *)ledControl},
 };
 
     JNIEXPORT jint JNICALL
