@@ -1,4 +1,5 @@
-objs := led.o nand.o
+src = $(shell ls *.c)
+objs := $(patsubst %.c,%.o,$(src))
 libdriver.a: $(objs)
 	${AR} -r -o $@ $^
 
