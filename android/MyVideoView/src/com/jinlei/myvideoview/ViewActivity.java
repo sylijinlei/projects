@@ -16,9 +16,9 @@ import android.widget.VideoView;
 
 public class ViewActivity extends Activity implements OnClickListener
 {
-	VideoView vvVideo;
+	VideoView videoView;
 	File fVideo;
-	MediaController mcVideo;
+	MediaController mediaControl;
 	Button btnStart;
 	Button btnStop;
 
@@ -29,13 +29,15 @@ public class ViewActivity extends Activity implements OnClickListener
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_video);
-		vvVideo = (VideoView) findViewById(R.id.vvVideo);
+		videoView = (VideoView) findViewById(R.id.vvVideo);
 		fVideo = new File("/mnt/sdcard/test.mp4");
 		btnStart = (Button)findViewById(R.id.btnStart);
 		btnStop = (Button)findViewById(R.id.btnStop);
 		btnStart.setOnClickListener(this);
 		btnStop.setOnClickListener(this);
-		mcVideo = new MediaController(ViewActivity.this);
+		
+		mediaControl = new MediaController(this);
+		
 		if (fVideo.exists())
 		{
 			// VideoView与MediaController进行关联
@@ -81,12 +83,12 @@ public class ViewActivity extends Activity implements OnClickListener
 			if (fVideo.exists())
 			{
 				// VideoView与MediaController进行关联
-				vvVideo.setVideoPath(fVideo.getAbsolutePath());
-				vvVideo.setMediaController(mcVideo);
-				mcVideo.setMediaPlayer(vvVideo);
+				videoView.setVideoPath(fVideo.getAbsolutePath());
+				videoView.setMediaController(mediaControl);
+				mediaControl.setMediaPlayer(videoView);
 				// 让VideiView获取焦点
-				vvVideo.requestFocus();
-				vvVideo.start();
+				videoView.requestFocus();
+				videoView.start();
 			} else
 			{
 				Log.e("ViewActivity","file not exist!");
