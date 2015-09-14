@@ -14,8 +14,12 @@ public class Test {
 	//	cam1.start();
 		Computer computer = new Computer();
 		//computer.usbUsb(phone);
-		Usb usb = new Camera();
-
+		Usb usb = null;
+		usb = new Camera();
+		usb.start(1002);
+		Use use = new Use();
+		use.sp = 4444;
+		use.setUsb(usb);
 		Sd sd = new Sd(){    //SdÊÇ½Ó¿Ú
 			
 			public void sd_start(Computer cmp, int speed)
@@ -24,11 +28,11 @@ public class Test {
 				System.out.println("speed = "+cmp.sp);
 			}
 		};	
-		computer.usbSd(sd);
+		//computer.usbSd(sd);
 		
 	
 		Usb usb2 = new Usb() {
-
+			
 			public void stop() {
 				// TODO Auto-generated method stub
 				
@@ -40,8 +44,8 @@ public class Test {
 				
 			}
 		};
-		usb2.start(3000);
-		computer.usbUsb(usb2);
+	//	usb2.start(3000);
+		//computer.usbUsb(usb2);
 		
 	}
 
@@ -59,6 +63,7 @@ interface Keyboard
 }
 class Camera implements Usb,Keyboard
 {
+	int sp = 1234;
 	public void start(int speed)
 	{
 		
@@ -74,6 +79,7 @@ class Camera implements Usb,Keyboard
 	{
 		
 	}
+
 }
 class Phone implements Usb
 {
@@ -105,6 +111,15 @@ class Computer
 		sd.sd_start(this,sp);
 		
 	}
+}
+class Use
+{
+	public int sp;
+	public void setUsb(Usb usb)
+	{
+		usb.start(sp);
+	}
+	
 }
 class Mtd
 {

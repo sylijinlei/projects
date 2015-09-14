@@ -24,6 +24,8 @@ public class HardcontrolActivity extends Activity
 	RadioButton rdoLed2 = null;
 	RadioButton rdoLed3 = null;
 	CheckBox chkLed[];
+	ILedService iLedService;
+	LedService  ledservice;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -43,18 +45,19 @@ public class HardcontrolActivity extends Activity
 		chkLed[1] = (CheckBox) findViewById(R.id.chkLed1);
 		chkLed[2] = (CheckBox) findViewById(R.id.chkLed2);
 		chkLed[3] = (CheckBox) findViewById(R.id.chkLed3);
+		ledservice = new LedService();
+		iLedService = ILedService.Stub.asInterface(ledservice);
+		
+		
 
-		Led.ledOpen();
 		// …Ë÷√btnControlº‡Ã˝∆˜
 		btnControl.setOnClickListener(new OnClickListener()
 		{
 			public void onClick(View v)
 			{
 				// TODO Auto-generated method stub
-				Led.ledControl(0, 0);
-				Led.ledControl(1, 0);
-				Led.ledControl(2, 0);
-				Led.ledControl(3, 0);
+				iLedService.ledCtrl(1, 1);
+
 			}
 		});
 		// …Ë÷√rdoGupLedº‡Ã˝
@@ -98,44 +101,44 @@ public class HardcontrolActivity extends Activity
 			case R.id.chkLed0:
 				if (isChecked)
 				{
-					Led.ledControl(0, 1);
+					iLedService.ledCtrl(0, 1);
 					Toast.makeText(HardcontrolActivity.this, "Led0 chedked", Toast.LENGTH_SHORT).show();
 				} else
 				{
-					Led.ledControl(0, 0);
+					iLedService.ledCtrl(0, 0);
 					Toast.makeText(HardcontrolActivity.this, "Led0 unchedked", Toast.LENGTH_SHORT).show();
 				}
 				break;
 			case R.id.chkLed1:
 				if (isChecked)
 				{
-					Led.ledControl(1, 1);
+					iLedService.ledCtrl(1, 1);
 					Toast.makeText(HardcontrolActivity.this, "chkLed1 chedked", Toast.LENGTH_SHORT).show();
 				} else
 				{
-					Led.ledControl(1, 0);
+					iLedService.ledCtrl(1, 0);
 					Toast.makeText(HardcontrolActivity.this, "chkLed1 unchedked", Toast.LENGTH_SHORT).show();
 				}
 				break;
 			case R.id.chkLed2:
 				if (isChecked)
 				{
-					Led.ledControl(2, 1);
+					iLedService.ledCtrl(2, 1);
 					Toast.makeText(HardcontrolActivity.this, "chkLed2 chedked", Toast.LENGTH_SHORT).show();
 				} else
 				{
-					Led.ledControl(2, 0);
+					iLedService.ledCtrl(2, 0);
 					Toast.makeText(HardcontrolActivity.this, "chkLed2 unchedked", Toast.LENGTH_SHORT).show();
 				}
 				break;
 			case R.id.chkLed3:
 				if (isChecked)
 				{
-					Led.ledControl(3, 1);
+					iLedService.ledCtrl(3, 1);
 					Toast.makeText(HardcontrolActivity.this, "chkLed3 chedked", Toast.LENGTH_SHORT).show();
 				} else
 				{
-					Led.ledControl(3, 0);
+					iLedService.ledCtrl(3, 0);
 					Toast.makeText(HardcontrolActivity.this, "chkLed3 unchedked", Toast.LENGTH_SHORT).show();
 				}
 				break;
