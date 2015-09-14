@@ -45,7 +45,13 @@ public class HelloActivity extends Activity
 				// TODO Auto-generated method stub
 				strFactor1 = edtFactor1.getText().toString();
 				strFactor2 = edtFactor2.getText().toString();
-				intResult = Integer.parseInt(strFactor1) + Integer.parseInt(strFactor2);
+				int factor1 = 0;
+			
+					factor1 = toInt(strFactor1);
+	
+			
+				int factor2 = Integer.parseInt(strFactor2);
+				intResult = factor1 + factor2;
 				strResult = Integer.toString(intResult);
 				btnEqual.setText(strResult);
 				Hello.sayhello(12, 56);
@@ -63,10 +69,18 @@ public class HelloActivity extends Activity
 		} catch (Exception e)
 		{
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
+			
 		}
 	}
+int toInt(String str) throws NumberFormatException
+{
+	int r = 0;
 
+		r =  Integer.parseInt(str);
+
+	return r;
+}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
