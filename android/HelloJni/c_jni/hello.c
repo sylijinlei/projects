@@ -1,4 +1,3 @@
-
 #include <jni.h>  /* /usr/lib/jvm/java-1.7.0-openjdk-amd64/include/ */
 #include <stdio.h>
 #include <stdlib.h>
@@ -42,7 +41,6 @@ JNI_OnLoad(JavaVM *jvm, void *reserved)
     if (cls == NULL) {
         return JNI_ERR;
     }
-
     /* 2. map java hello <-->c c_hello */
     if ((*env)->RegisterNatives(env, cls, methods, sizeof(methods) / sizeof(JNINativeMethod)) < 0)
         return JNI_ERR;

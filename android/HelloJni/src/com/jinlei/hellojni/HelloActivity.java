@@ -20,7 +20,7 @@ public class HelloActivity extends Activity
 	String strFactor2;
 	int intResult;
 	String strResult;
-	String str1 = "java string";
+	String str1 = "get from java";
 	String str;
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -50,7 +50,7 @@ public class HelloActivity extends Activity
 				btnEqual.setText(strResult);
 				Hello.sayhello(12, 56);
 				str = Hello.printString(str1);
-				Log.e("HelloJni", str);
+				Log.e("HelloJni", "app:" +str);
 
 			}
 		});
