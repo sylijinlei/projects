@@ -11,7 +11,6 @@ public class LedService extends ILedService.Stub {
    }
    public  int ledCtrl(int which, int status) throws android.os.RemoteException
    {
-
 		 Slog.e(TAG, "LedService ledCtrl called.");
 		//return native_ledCtrl(which, status);
 		return 0;
