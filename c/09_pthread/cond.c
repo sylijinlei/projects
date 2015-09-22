@@ -13,15 +13,15 @@ void * thread1(void *data)
         pthread_mutex_lock(&mutex);
         while(tickets > 0)
         {
-            if(tickets % 3 == 0)
+            if(tickets % 3 != 0)
+            {
+                pthread_cond_wait(&cond, &mutex);
+            }else
             {
                 usleep(5000);
                 printf("thread1 tickets = %d\n", tickets);
                 tickets--;
                 pthread_cond_signal(&cond);
-            }else
-            {
-                pthread_cond_wait(&cond, &mutex);
             }
         }
         pthread_mutex_unlock(&mutex);
@@ -36,15 +36,15 @@ void * thread2(void *data)
         pthread_mutex_lock(&mutex);
         while(tickets > 0)
         {
-            if(tickets % 3 != 0)
+            if(tickets % 3 == 0)
+            {
+                pthread_mutex_unlock(&mutex);
+            }else
             {
                 usleep(5000);
                 printf("thread2 tickets = %d\n", tickets);
                 tickets--;
                 pthread_cond_signal(&cond);
-            }else
-            {
-                pthread_mutex_unlock(&mutex);
             }
         }
         /*pthread_mutex_unlock(&mutex);*/
