@@ -38,7 +38,7 @@ void * thread2(void *data)
         {
             if(tickets % 3 == 0)
             {
-                pthread_mutex_unlock(&mutex);
+                pthread_cond_wait(&cond, &mutex);
             }else
             {
                 usleep(5000);
