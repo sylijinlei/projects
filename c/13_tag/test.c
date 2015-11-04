@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
     printf("header size = %d\n", (int)sizeof(struct tag_header));
     printf("tag size = %d\n", (int)sizeof(struct tag));
     setup_start_tag();
+    param += 100;
 
     return 0;
 }
