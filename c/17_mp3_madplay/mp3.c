@@ -5,8 +5,7 @@
 #include <malloc.h>
 #include "mp3.h"
 #include "list.h"
-extern ListHead g_list;
-int mp3_song_list_init(pListHead *list, char *path)
+int mp3_song_list_init(pListHead list, char *path)
 {
     DIR *dir;  
     struct dirent *pdirent;  	
@@ -26,7 +25,7 @@ int mp3_song_list_init(pListHead *list, char *path)
        new = (pListHead)malloc(sizeof(ListHead)); 
        new->data.id = i+1;
        strcpy(new->data.name, pdirent->d_name);
-       list_add_tail(&g_list, new);
+       list_add_tail(list, new);
        i++;
     }
     closedir(dir);
