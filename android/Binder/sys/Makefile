@@ -1,6 +1,6 @@
 NAME=Led
 SOURCE=/work/sources/android-5.0.2
-all:
+copy:
 	cp I$(NAME)Service.aidl $(SOURCE)/frameworks/base/core/java/android/os/  # ILedService.aidl   接口生成文件
 	@#修改 /frameworks/base/Android.mk      到/base目录下执行 mmm .
 
@@ -10,9 +10,6 @@ all:
 	@# mmm /frameworks/base/services     编译LedService.java，生成Service 
 	
 	cp com_android_server_LedService.cpp  $(SOURCE)/frameworks/base/services/core/jni
-
 	                        @#修改 /frameworks/base/services/core/jni下的onload.cpp
 	                        @#修改 /frameworks/base/services/core/jni下的Android.mk
 							@#执行mmm ./frameworks/base/service/core/jni
-
-

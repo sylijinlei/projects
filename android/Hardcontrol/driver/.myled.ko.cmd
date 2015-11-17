@@ -1,1 +1,0 @@
-cmd_/work/share/projects/android/Hardcontrol/driver/myled.ko := arm-linux-ld -EL -r  -T /work/sources/linux-3.0.86/scripts/module-common.lds --build-id  -o /work/share/projects/android/Hardcontrol/driver/myled.ko /work/share/projects/android/Hardcontrol/driver/myled.o /work/share/projects/android/Hardcontrol/driver/myled.mod.o
