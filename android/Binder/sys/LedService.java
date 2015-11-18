@@ -19,5 +19,3 @@ public class LedService extends ILedService.Stub {
    //public native int native_ledOpen();
    //public native void native_ledClose();
 }
-
-

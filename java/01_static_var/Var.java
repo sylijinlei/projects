@@ -8,6 +8,7 @@ public class Var
 		chd2.joinGame();
 		System.out.println("child1 name = "+chd1.name);
 		System.out.println("total child count:"+Child.count);
+		System.out.println(chd1.getClass().getName());
 	}
 }
 class Child

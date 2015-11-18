@@ -22,4 +22,3 @@ $(OBJ): $(SRC)
 endif
 clean:
 	rm $(OBJ) ../libs/armeabi/$(OBJ)
-

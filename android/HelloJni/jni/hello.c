@@ -1,4 +1,3 @@
-
 #include <jni.h>  /* /usr/lib/jvm/java-1.7.0-openjdk-amd64/include/ */
 #include <stdio.h>
 #include <stdlib.h>
@@ -24,14 +23,11 @@ jstring c_printString(JNIEnv *env, jobject cls,jstring str)
     (*env)->ReleaseStringUTFChars(env, str, cstr);
 
     return (*env)->NewStringUTF(env, "return from c");
-
 }
 static const JNINativeMethod methods[] = {
     {"sayhello", "(II)I", (void *)c_sayhello},
     {"printString", "(Ljava/lang/String;)Ljava/lang/String;", (void *)c_printString},
 };
-
-
     JNIEXPORT jint JNICALL
 JNI_OnLoad(JavaVM *jvm, void *reserved)
 {
@@ -52,5 +48,3 @@ JNI_OnLoad(JavaVM *jvm, void *reserved)
 
     return JNI_VERSION_1_4;
 }
-
-
