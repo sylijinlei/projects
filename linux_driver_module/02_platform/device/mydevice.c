@@ -35,7 +35,7 @@ static struct platform_device mydevice_device = {
    .id = -1,
    .dev = {
      .release = mydevice_release,
-     .p->driver_data= &mychar_data,
+     .platform_data= &mychar_data,
    },
    .num_resources = ARRAY_SIZE(mydevice_resource),
     .resource = mydevice_resource,

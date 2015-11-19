@@ -18,7 +18,7 @@ struct mychar_dev{
 	struct class *class;									
 	struct device *device;                         //类class和device用于动态创建设备节点
     struct resource *res_irq;
-    struct mychar_platform_data *mychar_data
+    struct mychar_platform_data *mychar_data;
 };
 static struct mychar_dev   *mychar_dev;              //定义设备结构体的全局指针，在加载驱动的时候动态申请
 
@@ -62,7 +62,7 @@ static struct file_operations mychar_fops = {
     .unlocked_ioctl = mychar_ioctl,
     .release = mychar_close,
 };
-static int mychar_probe(struct platform_device *dev)
+static int mychar_probe(struct platform_device *pdev)
 {
 	int ret;
     /*printk("mychar driver probe!\n");*/
@@ -92,13 +92,11 @@ static int mychar_probe(struct platform_device *dev)
 	 
 	 mychar_dev->class = class_create(THIS_MODULE, "mychar");
 	 mychar_dev->device = device_create(mychar_dev->class, NULL, mychar_dev->dev_num, NULL, MYCHAR_DEV_NAME);     //创建class类和设备，自动创建设备节点
-     /****************************************************添加功能代码********************************************************************************************/
-    printk("11111111111111111111111\n");
-     mychar_dev->res_irq = platform_get_resource(dev, IORESOURCE_IRQ, 0);
-    printk("222222222222222222222\n");
-     mychar_dev->mychar_data = platform_get_drvdata(dev);
 
-    printk("3333333333333333333333\n");
+     /****************************************************添加功能代码********************************************************************************************/
+     mychar_dev->res_irq = platform_get_resource(pdev, IORESOURCE_IRQ, 0);
+     mychar_dev->mychar_data = pdev->dev.platform_data;
+
      printk("platform_data name = %s\n", mychar_dev->mychar_data->name);
      
      
