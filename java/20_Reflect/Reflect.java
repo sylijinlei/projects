@@ -1,14 +1,14 @@
-package a.b.c.d
+package a.b.c.d;
 class Person{
-	private String name;
-	void setName(String name)
-	{
-		this.name = name;
-	}
-	String getName()
-	{
-		return this.name;
-	}
+	//public String name;
+	//void setName(String name)
+	//{
+		//this.name = name;
+	//}
+	//String getName()
+	//{
+		//return this.name;
+	//}
 }
 public class Reflect
 {
@@ -16,6 +16,7 @@ public class Reflect
 	{
 		Person p = new Person();
 		System.out.println(p.getClass().getName());
+		
 	}
 
 }
